@@ -39,9 +39,10 @@ function setup() {
     // easycam.removeMouseListeners();
     // easycam.attachMouseListeners();
 
-    button = createButton("Just Read Me !");
+    button = createButton("Just ! Read ! Me !");
     button.mousePressed(userClick);
-    button.position(windowWidth/2 - 45, windowHeight*0.93);
+    button.size(198, 36);
+    button.position(windowWidth/2 - 99, windowHeight*0.93);
 }
 
 let count = 0;
