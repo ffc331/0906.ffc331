@@ -17,22 +17,20 @@ function preload() {
 
 function setup() {
   cnv = createCanvas(windowHeight, windowHeight,WEBGL);
-//   cnv.attachMouseListeners();
-//   pixelDensity(2);
-//   frameRate(60);
   imageMode(CENTER);
   noStroke();
 
   easycam = createEasyCam({
-    distance: 1200,
+    distance: 2700,
     center: [0, 0, 0]
   });
     easycam.setDistanceMin(600);
-    easycam.setDistanceMax(1800);
+    easycam.setDistanceMax(2700);
 
     state = easycam.getState();
+    state.distance = 1800-windowWidth;
     _state = state;
-    // print(state.rotation[0]);
+    // print(state.distance);
     print("thank you");
     viewport = easycam.getViewport();
     // print(viewport[1]);
@@ -122,11 +120,6 @@ function draw() {
         strCount += 1;
     }
 
-    if (mouseIsPressed === true) {
-
-        console.log("ddddd");
-    }
-
 }
 
 function windowResized() {
@@ -134,27 +127,6 @@ function windowResized() {
 }
 
 let hFix = 0;
-
-// function mousePressed(event) {
-//     if (event.type == 'mousedown') {
-//       // click action 
-//       clickCount += 1;
-//       clickTimer = clickTimerMax;  
-//         // if(clickCount == 3){
-//         //     clickCount = 0;
-//         //     userClick();
-//         // }
-//     } else if(event.type == 'mouseup'){
-//         if(clickCount == 3){
-//             clickCount = 0;
-//             userClick();
-//         }
-//     }
-
-//     // print(event.type);
-// }
-
-
 
 function keyPressed() {
     userClick(); 
@@ -186,6 +158,10 @@ function clickTrip(){
     }else if(open==2){
         open = 0;
         easycam.attachMouseListeners();
+        let _s = JSON.parse(JSON.stringify(state));
+        // print(_s);
+        _s.distance = 2700;
+        easycam.setState(_s, 2000);
     }
 
   }
