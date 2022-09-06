@@ -28,7 +28,7 @@ function setup() {
     easycam.setDistanceMax(2700);
 
     state = easycam.getState();
-    state.distance = 1800-windowWidth;
+    state.distance = (1800-windowWidth > 1200) ? 1800-windowWidth : 1200;
     _state = state;
     // print(state.distance);
     print("thank you");
