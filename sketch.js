@@ -79,7 +79,7 @@ function draw() {
     push();
     // fill('#e6daa8');
     fill(0);
-    box(981,500,boxSize*2*0.9);
+    box(981,481,boxSize*2*0.9);
     pop();
 
     if(open == 0){
